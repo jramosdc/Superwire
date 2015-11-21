@@ -1,0 +1,100 @@
+.glyphicon-to-fa(@name) {
+  @var: 'fa-var-@{name}';
+  &.glyphicon-@{name}:before {
+    content: @@var;
+  }
+}
+
+@font-size-base:			12px;
+@font-family-base:          'Open Sans', sans-serif;
+@sidebar-delay:             350ms;
+@sidebar-movement:          275px;
+@sidebar-minimal:           80px;
+
+@black:                     #000000;
+@gray:                      #504d52;
+@orange:                    #e96c4e;
+@orange-light:              #fa9444;
+@orange-fade:               #f5c4ba;
+@red:                       #f75256;
+@red-fade:                  #e34b07;
+@blue:                      #51a6e0;
+@bluer:                     #2381c2;
+@green:                     #06b755;
+@green-light:               lighten(@green, 10%);
+@green-vague:               #84d2a3;
+@yellow:                    #fbd54a;
+@yellowish:                 #fffdee;
+@gray-light:                #e6e6e6;
+@gray-lighter:              #f7f7f7;
+@gray-lightest:             #fafafa;
+@gray-dark:                 darken(@gray, 5%); // #434145
+@gray-darker:               darken(@gray, 7%); // #3e3c40
+@gray-darkest:              darken(@gray, 10%); // #363438
+@average-gray:              #cccccc;
+@white:                     #ffffff;
+@body-bg:                   #f2f2f2;
+@text-color:                #808080;
+@admin-bg:                  #edf0f4;
+@notification-bar-bg:       #FFFF92;
+@notification-bar-text:     #898310;
+
+@h1:                        #333333;
+@h2:                        @orange;
+@h3:                        #5d5d5d;
+@h4:                        #666666;
+
+@meta:                      #999999;
+
+@navbar-height:             44px;
+@navbar-inverse-color:      @white;
+@navbar-inverse-link-color: @white;
+@navbar-inverse-bg:         @orange;
+
+@nav-tabs-border-color:     @gray-light;
+
+@brand-primary:             @blue;
+@brand-success:             @green;
+@brand-warning:             @orange;
+@brand-danger:              @orange;
+@brand-info:                @orange;
+
+@headings-font-weight:      normal;
+@headings-line-height:      1.2;
+
+@border-radius-base:        3px;
+@border-radius-large:       4px;
+@border-radius-small:       2px;
+
+@padding-base-vertical:     9px;
+@padding-base-horizontal:   12px;
+
+@padding-large-vertical:    10px;
+@padding-large-horizontal:  16px;
+
+@padding-small-vertical:    5px;
+@padding-small-horizontal:  10px;
+
+@input-border:              #cccccc;
+@input-color-placeholder:   lighten(@text-color, 10%);
+@input-color:               @text-color;
+
+@btn-default-bg:            @gray-light;
+@btn-default-border:        #c1c1c1;
+@btn-default-color:         #666666;
+
+@btn-default-dark-color:    @white;
+@btn-default-dark-bg:       #878787;
+@btn-default-dark-border:   #666666;
+
+@state-success-text:        @blue;
+@state-success-border:      @blue;
+
+@screen-xxs:                320px;
+
+@grid-gutter-width:			10px;
+@grid-gutter-half:          @grid-gutter-width/2;
+
+@font-size-h2:              floor((@font-size-base * 1.5)); // ~21px
+@font-size-h3:              floor((@font-size-base * 1.17)); // ~14px
+@font-size-h4:              floor((@font-size-base * 1.17)); // ~14px

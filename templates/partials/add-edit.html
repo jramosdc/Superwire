@@ -1,0 +1,97 @@
+<form role="form" name="form">
+  <div class="modal-header">
+    <h4 class="modal-title">
+      Nuevo artículo
+    </h4>
+  </div>
+
+  <div class="modal-body" cg-busy="promise">
+    <div class="form-horizontal">
+      <div class="form-group">
+        <label for="title" class="col-sm-2 control-label">Titular</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="title" placeholder="Title" ng-model="data.titular">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="priority" class="col-sm-2 control-label">Prioridad</label>
+        <div class="dropdown col-sm-9">
+          <button class="btn btn-default dropdown-toggle" type="button" id="priority" data-toggle="dropdown" aria-expanded="true">
+            {{ data.prioridad || "Priority" }}
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="priority">
+            <li role="presentation" ng-click="selectPriority('high')">
+              <a role="menuitem" tabindex="-1" href="#">Urgente</a>
+            </li>
+            <li role="presentation" ng-click="selectPriority('normal')">
+              <a role="menuitem" tabindex="-1" href="#">Normal</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="type" class="col-sm-2 control-label">Tipo</label>
+        <div class="col-sm-9">
+          <sc-dropdown
+            flavor="'multiple'"
+            type="'single'"
+            keep-label
+            items="types"
+            btn-class="'default btn-default'"
+            on-select="selectType"
+            >
+          </sc-dropdown>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="type" class="col-sm-2 control-label">Categorías</label>
+        <div class="col-sm-9">
+          <sc-dropdown
+            flavor="'multiple'"
+            type="'single'"
+            keep-label
+            items="categories"
+            btn-class="'default btn-default'"
+            on-select="selectCategory"
+            >
+          </sc-dropdown>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="url" class="col-sm-2 control-label">Link/Url</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="url" placeholder="Link/Url" ng-model="data.url">
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="pdf" class="col-sm-2 control-label">PDF</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="pdf" placeholder="Añade PDF" ng-model="data.pdf">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="data" class="col-sm-2 control-label">Contenido</label>
+        <div class="col-sm-9">
+          <div name="data" ng-model="data.data" ta-unsafe-sanitizer="true" text-angular>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-primary" ng-click="save(data)">
+      Save
+    </button>
+    <button type="button" class="btn btn-link" ng-click="$dismiss()">
+      Close
+    </button>
+  </div>
+</form>

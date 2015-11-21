@@ -1,0 +1,11 @@
+  <div class="ticker-container" ng-controller="SMSCtrl" >
+    <div class="ticker-caption">
+      <p>TIPS SMS</p>
+    </div>
+    <ul>
+      <div ng-repeat="message in messages" class="not-active">
+        <li><span><b>{{ message.from }}<b>: </span><span ng-bind-html='toTrustedHTML(message.message)'></span></li>
+      </div>
+    </ul>
+  </div>
+

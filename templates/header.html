@@ -1,0 +1,13 @@
+<div class="header-bar">
+  <div class="col-md-3 title">
+    <img src="templates/exrlogo.png"/>
+  </div>
+  <div class="col-md-4 header-content">
+    <button class="btn btn-primary" ng-click="createUser()" ng-if="auth">Create user</button>
+  </div>
+  <div class="col-md-4 header-content" ng-if="auth">
+  	<span class="message">welcome {{ auth.password.email }} </span>
+  </div>
+  <div class="col-md-1 header-content" ng-if="!auth"><a href="" ng-click="login()">Login</a></div>
+  <div class="col-md-1 header-content" ng-if="auth"><a href="" ng-click="logout()">Logout</a></div>
+</div>

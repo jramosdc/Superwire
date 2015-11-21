@@ -1,0 +1,304 @@
+.btn {
+  border: 0;
+  border-bottom: 2px solid transparent;
+  font-weight: bold;
+  i.fa.right, i.fa.left {
+    position: absolute;
+    top: 12px;
+  }
+  i.fa.right {
+    right: @grid-gutter-half;
+  }
+  i.fa.left {
+    left: @grid-gutter-half;
+  }
+  &.active {
+    color: @orange;
+  }
+}
+
+.button-variant(@color; @background; @border) {
+  color: @color;
+  background-color: @background;
+  border-color: @border;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &.active,
+  .open .dropdown-toggle& {
+    color: @color;
+    background-color: darken(@background, 8%);
+        border-color: darken(@border, 12%);
+  }
+  &:active,
+  &.active,
+  .open .dropdown-toggle& {
+    background-image: none;
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      background-color: @background;
+          border-color: @border;
+    }
+  }
+
+  .badge {
+    color: @background;
+    background-color: @color;
+  }
+}
+
+.box-shadow(@shadow) {
+  -webkit-box-shadow: @shadow; // iOS <4.3 & Android <4.1
+          box-shadow: @shadow;
+}
+
+.form-control, .input-group-btn .btn, .input-group-btn .btn:hover {
+  border: 2px solid @input-border;
+}
+
+.input-group-btn .btn {
+  width: 40px;
+  height: 40px;
+  &, &:hover {
+    border-left: 0;
+  }
+}
+
+.input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group {
+  margin-left: -2px;
+}
+
+.btn-group-severities {
+  width: 100%;
+}
+
+.btn-small {
+  height: 24px;
+  font-size: 12px;
+  padding: 0;
+}
+
+.btn-group-severities > .btn-white,
+.nav.nav-stacked > li.icon {
+  position: relative;
+  padding: 10px;
+  text-align: left;
+  padding-left: 50px;
+  > .badge, > i.fa {
+    position: absolute;
+    top: 50%;
+    margin-top: -14px;
+    left: 10px;
+    &:after {
+      height: 34px;
+      width: 1px;
+      right: -7px;
+      top: -2px;
+      background: @gray-light;
+    }
+  }
+
+  > i.fa {
+    font-size: 200%;
+    width: 28px;
+    text-align: center;
+  }
+  &.active {
+    color: @text-color;
+    text-indent: 0;
+    &:before {
+      display: none;
+    }
+    .badge:before {
+      font-family: FontAwesome;
+    }
+  }
+}
+
+.btn-group-footer {
+  position: fixed;
+  width: 100%;
+  right: 0;
+  bottom: 0;
+  padding: 9px @grid-gutter-half 10px @grid-gutter-half;
+  border-top: 1px solid @gray-light;
+  background: @white;
+  .focused & {
+    display: none;
+  }
+}
+
+.btn-X(@index) when (@index > 0) {
+  .btn-@{index} {
+    width: percentage(@index/100);
+  }
+  .btn-X(@index - 10);
+}
+
+.btn-X(90);
+
+.btn-circle {
+  border-radius: 100%;
+  width: 40px;
+}
+
+.btn-big {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.btn-default {
+  .button-variant(@btn-default-color; @btn-default-bg; @btn-default-border);
+}
+
+.btn-default-dark {
+  .button-variant(@btn-default-dark-color; @btn-default-dark-bg; @btn-default-dark-border);
+}
+
+.btn-green {
+  .button-variant(@white; @green; darken(@green, 10%));
+  .mobile &:hover { background: @green; border-color: darken(@green, 10%); }
+}
+
+.btn-blue {
+  .button-variant(@white; @blue; darken(@blue, 10%));
+  .mobile &:hover { background: @blue; border-color: darken(@blue, 10%); }
+}
+
+.btn-orange {
+  .button-variant(@white; @orange; darken(@orange, 10%));
+  .mobile &:hover { background: @orange; border-color: darken(@orange, 10%); }
+}
+
+.btn-white {
+  .button-variant(@text-color, @white, @gray-light);
+  .mobile &:hover { background: @white; border-color: @gray-light; }
+  &.active {
+    color: @orange;
+    &:hover {
+      color: @orange;
+    }
+    background: @white;
+    .box-shadow(none);
+    border-color: @gray-light;
+    text-indent: 18px;
+    &:before {
+      margin-left: -36px;
+      .android-browser & {
+        margin-left: -16px;
+      }
+      margin-top: -2px;
+      font-size: 120%;
+      font-family: FontAwesome;
+    }
+  }
+}
+
+.btn-group .btn + .btn, .btn-group .btn + .btn-group, .btn-group .btn-group + .btn, .btn-group .btn-group + .btn-group {
+  border-left: 1px solid @gray-light;
+}
+
+.btn-datetime-invisible {
+  width: 0;
+  height: 0;
+  border: 0;
+  color: transparent;
+  position: absolute;
+  background: transparent;
+  .android-browser & {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.badge {
+  border-radius: @border-radius-base;
+  text-transform: uppercase;
+  font-weight: bold;
+  padding: 8px;
+  &.circle {
+    border-radius: 100%;
+    width: 28px;
+  }
+  &.desirable {
+    background-color: @green-light;
+  }
+  &.low, &.acceptable {
+    background-color: @green;
+  }
+  &.medium {
+    background-color: @blue;
+  }
+  &.high, &.undesirable {
+    background-color: @yellow;
+  }
+  &.very-high, &.unacceptable  {
+    background-color: @orange-light;
+  }
+  &.extreme, &.catastrophic {
+    background-color: @orange;
+  }
+  &.fixed {
+    width: 75px;
+  }
+  &.count {
+    padding: 8px 10px;
+    border-radius: 50%;
+    color: @meta;
+  }
+}
+
+button.badge {
+  border-bottom: 0px;
+  &:active {
+    .box-shadow(none);
+  }
+  &, &:hover, &:focus {
+    color: @btn-default-color;
+  }
+  &.desirable, &.low, &.acceptable, &.medium, &.high, &.undesirable, &.very-high, &.unacceptable, &.extreme, &.catastrophic {
+    &, &:hover, &:focus {
+      color: @white;
+    }
+  }
+}
+
+.nav.nav-stacked {
+  border-top: 1px solid @gray-light;
+  > li + li {
+    margin-top: 0px;
+  }
+  > li {
+    background: @white;
+    font-size: 90%;
+    color: @gray;
+    padding: @grid-gutter-half;
+    > a {
+      padding: @grid-gutter-half;
+      margin: -@grid-gutter-half;
+      color: @gray;
+    }
+    &:after {
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      border-bottom: 1px solid @gray-light;
+    }
+    &.new {
+      border-left: 4px solid @green;
+    }
+  }
+}
+
+.container .nav.nav-stacked {
+  margin-left: -@grid-gutter-half;
+  margin-right: -@grid-gutter-half;
+}

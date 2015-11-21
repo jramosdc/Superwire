@@ -1,0 +1,34 @@
+<form role="form" name="form">
+  <div class="modal-header">
+    <h4 class="modal-title">
+      Login
+    </h4>
+  </div>
+
+  <div class="modal-body" cg-busy="promise">
+    <div class="form-horizontal">
+      <div class="form-group">
+        <label for="username" class="col-sm-2 control-label">Username</label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" id="username" placeholder="username" ng-model="user.username">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password" class="col-sm-2 control-label">Password</label>
+        <div class="col-sm-9">
+          <input type="password" class="form-control" id="password" ng-model="user.password">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-primary" ng-click="login(user)">
+      Login
+    </button>
+    <button type="button" class="btn btn-link" ng-click="$dismiss()">
+      Close
+    </button>
+  </div>
+</form>

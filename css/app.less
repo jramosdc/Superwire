@@ -1,0 +1,229 @@
+/* app css stylesheet */
+
+[ng\:cloak], [ng-cloak], .ng-cloak { display: none; }
+@import 'buttons.less';
+@import 'variables.less';
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+html {
+  background-color: #393939;
+}
+
+.header-bar {
+  background-color: #393939;
+  margin: 0;
+  padding: 0;
+  min-height: 50px !important;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  .title {
+    background-color: #E96C4E;
+    min-height: 50px;
+    padding-top: 10px;
+    padding-left: 70px;
+  }
+}
+.header-content {
+  padding-top: 7px;
+  .message {
+    padding-top: 10px;
+    font-size: 14px;
+  }
+  a {
+    color: white;
+    font-size: 14px;
+    &:hover {
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+    }
+  }
+}
+
+.sidebar {
+  background-color: #393939;
+  margin: 0;
+  padding: 0;
+  min-height: 500px !important;
+  color: white;
+}
+
+.content {
+  background-color: @gray-light;
+  .content-header {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    background-color: #f7f7f7;
+    border: solid 1px #ddd;
+    label {
+      color: @h4;
+    }
+  }
+  .content-data {
+    padding-top: 10px;
+    .title-link {
+       color: #113C73;
+       display: block;
+       line-height: 20px;
+       border: solid 1px;
+       border-radius: 10px;
+       padding-left: 10px;
+       padding-bottom: 5px;
+       margin-bottom: 10px;
+       background-color: #EAEAEA;
+       box-shadow: 2px 2px 3px;
+       min-height: 50px;
+
+       a {
+          color: #113C73;
+          text-decoration: none;
+       }
+
+       &:hover {
+          background-color: #354458;
+          color: white;
+          text-decoration: none;
+          a {
+             color: white;
+             text-decoration: none;
+          }
+       }
+
+       .title {
+          padding-top: 13px;
+       }
+
+       .crud-buttons {
+          padding-top: 0px;
+       }
+    }
+
+    .well {
+      min-height: 60px;
+      margin-bottom:0px;
+      background-color: @blue;
+      &:hover {
+        background-color: @bluer;
+      }
+
+      .title {
+        padding-top: 0px;
+        color: white;
+        text-decoration: none;
+        &:hover {
+          font-weight: bold;
+        }
+      }
+    }
+
+    .highlight {
+      background-color: @red;
+      color: white;
+      &:hover {
+        background-color: @red-fade;
+      }
+      .title {
+        color: white;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.modal {
+   .modal-header {
+      background-color: @blue;
+      border-top-right-radius: 5px;
+      border-top-left-radius: 5px;
+      min-height: 50px;
+      color: white;
+   }
+   .modal-body {
+     .sc-list {
+       list-style: none;
+       padding-left: 0px;
+       margin-bottom: 0;
+     }
+
+     .list-item {
+       border-bottom: 1px solid @gray-lighter;
+       cursor: pointer;
+       padding-left: 10px;
+
+       &:hover {
+         background-color: @blue;
+         a {
+            color: white;
+         }
+       }
+
+       &.active {
+         &:hover {
+           background-color: @blue;
+           a {
+               color: white;
+            }
+         }
+       }
+
+       // container inside li
+       > div {
+         padding: 15px;
+       }
+
+       &.active,
+       .selected {
+         p small {
+           color: lighten(white, 10%)
+         }
+
+         background-color: @blue;
+         a {
+            color: white;
+         }
+         strong {
+           color: white;
+         }
+       }
+
+     }
+   }
+   .modal-footer {
+
+   }
+}
+
+.navigation {
+  li {
+    line-height: 50px;
+    font-weight: bold;
+    padding-left: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: solid 1px #444;
+    margin-top: 10px;
+    &:hover {
+      text-decoration: none;
+      background-color: white;
+      color: black;
+      a {
+        text-decoration: none;
+        color: @h3;
+      }
+    }
+  }
+  a {
+    color: #d5d5d5;
+  }
+  .active {
+    background-color: white;
+    a {
+      text-decoration: none;
+      color: @h3;
+    }
+  }
+}

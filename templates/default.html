@@ -1,0 +1,55 @@
+<div class="row content">
+    <div class="col-md-12 content-header">
+
+      <div class="form-horizontal">
+          <div class="form-group">
+            <label for="headline" class="col-sm-2 control-label">Buscar por titular</label>
+            <div class="col-sm-9">
+              <input ng-model="titleFilter" type="text" class="form-control" id="headline" placeholder="Headline">
+            </div>
+          </div>
+      </div>
+
+      <div class="form-inline">
+
+        <div class="col-md-3">
+          <button class="btn btn-primary" ng-click="addEdit(null, data)" ng-if="auth">Añadir Contenido</button>
+        </div>
+
+      </div>
+
+    </div>
+
+
+  <div class="row content-data">
+    <div class="col-md-10 col-md-offset-1" cg-busy="promise">
+        <div
+           class="well"
+           ng-repeat="item in data"
+           ng-show="item.titular && filterPost(item, titleFilter)"
+           ng-class="{ 'highlight': highlight(item)}"
+           ng-mouseover="show=true"
+           ng-mouseout="show=false" 
+           >
+          <span class="col-sm-1 title">
+            <i class="fa fa-camera" ng-if="item.type.indexOf('Imagen')>-1"></i>
+            <i class="fa fa-microphone" ng-if="item.type.indexOf('Audio')>-1"></i>
+            <i class="fa fa-caret-square-o-right" ng-if="item.type.indexOf('Video')>-1"></i>
+            <i class="fa fa-file-text" ng-if="item.type.indexOf('Texto')>-1"></i>
+          </span>
+          <a href="" class="col-sm-7 title" ng-click="viewItem(item)">
+            {{ item.titular }}</a><small> {{ getEditDate(item) }}
+          </small>
+          <span class="col-sm-2 btn-group crud-buttons" role="group" ng-show="show" ng-if="auth">
+            <button type="button" class="btn btn-xs" ng-click="addEdit(item, data)">
+              <i class="fa fa-code"></i>
+            </button>
+            <button type="button" class="btn btn-xs" sc-confirm="remove(item)" sc-confirm-message="Estás seguro que quieres eliminar esta entrada?">
+             <i class="fa fa-times"></i>
+            </button>
+          </span>
+        </div>
+    </div>
+  </div>
+
+</div>

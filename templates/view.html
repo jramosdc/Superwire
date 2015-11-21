@@ -1,0 +1,31 @@
+<form role="form" name="form">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" ng-click="$dismiss()">
+      <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+    </button>
+    <h4 class="modal-title">{{ data.titular }} {{ getEditDate() }}</h4>
+  </div>
+
+  <div class="modal-body">
+    <div ng-show="data.url">
+      Reference: <a href="{{ data.url }}" target="_blank">Click aquí para ver el post original</a>
+    </div>
+    <div ng-show="data.pdf">
+      <a href="{{ data.pdf }}" target="_blank"><i class="fa fa-file-pdf-o fa-3x"></i><span>&nbsp;Ver PDF</span></a>
+    </div>
+    <div ng-show="data.prioridad">Priority: {{ data.prioridad }}</div>
+    <div ng-show="data.type.length">Tipo:&nbsp;
+      <span ng-repeat="type in data.type">{{ type + ', ' }}</span>
+    </div>
+    
+    <text-angular ta-unsafe-sanitizer="true" ta-bind ng-model="data.data" ></text-angular>
+
+  </div>
+  
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-link" ng-click="$dismiss()">
+      Close
+    </button>
+  </div>
+</form>
